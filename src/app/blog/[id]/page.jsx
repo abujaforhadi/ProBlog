@@ -33,6 +33,8 @@ const BlogDetails = ({ params }) => {
       <p className="text-gray-700 text-lg leading-relaxed">{post.body}</p>
     </div>
   );
+  
 };
 
 export default BlogDetails;
+ 
