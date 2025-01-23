@@ -16,11 +16,15 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Blog Boom",
   description: "Blog app",
+  icons: {
+    icon: "/logo2.png", 
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      
       <body>
         <Navbar />
         <main
