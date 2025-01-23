@@ -67,7 +67,7 @@ const Home = () => {
 
   return (
     <section className="p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center">Blog Posts</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center text-[#0FABCA]">Blog Posts</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {currentPosts.map(({ id, title, body }) => (
           <div
@@ -75,10 +75,10 @@ const Home = () => {
             className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg transition hover:bg-gray-100"
           >
             <div className="p-4 flex-grow flex flex-col">
-              <h5 className="mb-2 text-slate-800 text-xl font-semibold">
+              <h5 className="mb-2 text-[#0FABCA] text-xl font-semibold">
                 {title}
               </h5>
-              <p className="text-slate-600 leading-normal font-light flex-grow">
+              <p className="text-slate-700 leading-normal font-light flex-grow">
                 {body}
               </p>
               <a href={`/blog/${id}`} className="mt-auto">
