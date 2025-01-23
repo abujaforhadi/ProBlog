@@ -16,8 +16,8 @@ export default function NavbarClient({ user }) {
                     {/* <li></li>
                     <li></li> */}
                     {
-                        user ? <><li><a href="/profile">profile</a></li> <LogoutLink>Log out</LogoutLink></> : <> <LoginLink>Sign in</LoginLink>
-                            <RegisterLink>Sign up</RegisterLink></>
+                        user ? <><li><a href="/profile">profile</a></li><li><LogoutLink>Log out</LogoutLink></li> </> : <> <li><LoginLink>Sign in</LoginLink></li><li><RegisterLink>Sign up</RegisterLink></li>
+                        </>
                     }
 
 
