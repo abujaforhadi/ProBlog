@@ -1,13 +1,38 @@
-export default async function BlogDetails({ params }) {
-    const { id } = params;
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-    const post = await res.json();
-  
+'use client';
+
+import axios from "axios";
+import { useState, useEffect } from "react";
+
+const BlogDetails = ({ params }) => {
+  const { id } = params;
+  const [post, setPost] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
+      const fetchedPost = response.data;
+
+
+      setPost(fetchedPost);
+    };
+
+    fetchData();
+  }, [id]);
+
+  if (!post) {
     return (
-      <div>
-        <h1 className="text-2xl font-bold mb-2">{post.title}</h1>
-        <p>{post.body}</p>
+      <div className="p-6">
+        <h1 className="text-3xl font-bold mb-4 text-center">Loading...</h1>
       </div>
     );
   }
-  
+
+  return (
+    <div className="p-6" >
+      <h1 className="text-3xl font-bold mb-4 text-center">{post.title}</h1>
+      <p className="text-gray-700 text-lg leading-relaxed">{post.body}</p>
+    </div>
+  );
+};
+
+export default BlogDetails;
