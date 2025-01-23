@@ -3,8 +3,6 @@ import { LoginLink, LogoutLink, RegisterLink } from "@kinde-oss/kinde-auth-nextj
 
 export default function NavbarClient({ user }) {
 
-
-
     return (
         <div className="navbar bg-base-100">
             <div className="flex-1">
@@ -16,8 +14,11 @@ export default function NavbarClient({ user }) {
                     {/* <li></li>
                     <li></li> */}
                     {
-                        user ? <><li><a href="/profile">profile</a></li><li><LogoutLink>Log out</LogoutLink></li> </> : <> <li><LoginLink>Sign in</LoginLink></li><li><RegisterLink>Sign up</RegisterLink></li>
-                        </>
+                        user ? <><li><a href="/profile">profile</a></li>
+                        <li><LogoutLink>Log out</LogoutLink></li> </> :
+                            <> <li><LoginLink>Sign in</LoginLink></li>
+                            <li><RegisterLink>Sign up</RegisterLink></li>
+                            </>
                     }
 
 
