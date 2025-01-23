@@ -10,11 +10,13 @@ export default function NavbarClient({ user }) {
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
+                <li><a href="/">Home</a></li>
+                <li><a href="/profile">profile</a></li>
                     {/* <li><a href="/login">Login</a></li> */}
                     {/* <li></li>
                     <li></li> */}
                     {
-                        user ? <><li><a href="/profile">profile</a></li>
+                        user ? <>
                         <li><LogoutLink>Log out</LogoutLink></li> </> :
                             <> <li><LoginLink>Sign in</LoginLink></li>
                             <li><RegisterLink>Sign up</RegisterLink></li>
