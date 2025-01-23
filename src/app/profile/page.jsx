@@ -1,3 +1,5 @@
+"use client"
+
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { FaRegHeart } from "react-icons/fa";
 import { MdOutlineTimer } from "react-icons/md";
