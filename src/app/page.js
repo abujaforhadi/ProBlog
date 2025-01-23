@@ -10,6 +10,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { useEffect, useState } from "react";
+import Loader from "@/components/Loader";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -46,11 +47,7 @@ const Home = () => {
   };
 
   if (isLoading) {
-    return (
-      <section className="p-6 text-center">
-        <h1 className="text-3xl font-bold">Loading...</h1>
-      </section>
-    );
+    return <Loader/>;
   }
 
   if (error) {
