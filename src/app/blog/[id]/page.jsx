@@ -21,17 +21,27 @@ const BlogDetails = ({ params }) => {
   }, [id]);
 
   if (!post) {
-    return <Loader/>
+    return <Loader />
   }
 
   return (
-    <div className="p-6" >
-      <h1 className="text-3xl font-bold mb-4 text-center">{post.title}</h1>
-      <p className="text-gray-700 text-lg leading-relaxed">{post.body}</p>
+    <div>
+      <h1 className="text-center text-2xl font-bold">Post Details</h1>
+      <div className="p-6 w-1/3 mx-auto my-10 border border-cyan-400 rounded-2xl" >
+      
+      
+      <div className="p-[18px] pt-2.5 bg-white rounded-b-md">
+        <h3 className="text-[1.5rem] font-bold text-[#0FABCA]">{post.title}</h3>
+        <p className="text-[1rem] font-[400] text-gray-600">{post.body}</p>
+
+        <button
+          className="w-full py-2 px-4 hover:bg-[#c0e6ed] hover:text-black text-[1rem] transition-all duration-300 bg-[#0FABCA] text-white rounded-md mt-5">Mark as read
+        </button>
+      </div>
+    </div>
     </div>
   );
 
 };
 
 export default BlogDetails;
- 
