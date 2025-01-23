@@ -1,6 +1,7 @@
 'use client';
 
 import axios from "axios";
+import { Loader } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const BlogDetails = ({ params }) => {
@@ -20,11 +21,7 @@ const BlogDetails = ({ params }) => {
   }, [id]);
 
   if (!post) {
-    return (
-      <div className="p-6">
-        <h1 className="text-3xl font-bold mb-4 text-center">Loading...</h1>
-      </div>
-    );
+    return <Loader/>
   }
 
   return (
@@ -33,7 +30,7 @@ const BlogDetails = ({ params }) => {
       <p className="text-gray-700 text-lg leading-relaxed">{post.body}</p>
     </div>
   );
-  
+
 };
 
 export default BlogDetails;

@@ -1,5 +1,6 @@
 "use client";
 
+import Loader from "@/components/Loader";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
@@ -10,15 +11,14 @@ export default function ProfilePage() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Fetch user data (mock example for client-side)
     async function fetchUser() {
       try {
-        const res = await fetch("/api/auth/session"); // Replace with actual endpoint
+        const res = await fetch("/api/auth/session");
         if (res.ok) {
           const session = await res.json();
           setUser(session?.user || null);
         } else {
-          router.push("/api/auth/login"); // Redirect if not authenticated
+          router.push("/api/auth/login");
         }
       } catch (error) {
         console.error("Failed to fetch session:", error);
@@ -29,7 +29,7 @@ export default function ProfilePage() {
   }, [router]);
 
   if (!user) {
-    return <p>Loading...</p>;
+    return <Loader/>;
   }
 
   return (
