@@ -1,35 +1,34 @@
-"use client";
-import { useState } from "react";
+"use client"
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { redirect } from "next/navigation"; // Ensure you import the redirect helper from Next.js
 
-export default function Profile() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+export default async function ProfilePage() {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
 
-  const handleLogin = () => setIsAuthenticated(true);
-  const handleLogout = () => setIsAuthenticated(false);
-
-  if (!isAuthenticated) {
-    return (
-      <div>
-        <p>You must be logged in to view this page.</p>
-        <button
-          onClick={handleLogin}
-          className="bg-blue-500 text-white px-4 py-2 rounded"
-        >
-          Login
-        </button>
-      </div>
-    );
+  // Redirect to login if the user is not authenticated
+  if (!session || !session.getUser()) {
+    redirect("/api/auth/login");
   }
 
+ 
+
   return (
-    <div>
-      <h1 className="text-2xl font-bold">Welcome to your profile!</h1>
-      <button
-        onClick={handleLogout}
-        className="bg-red-500 text-white px-4 py-2 rounded mt-4"
-      >
-        Logout
-      </button>
+    <div style={{ textAlign: "center", marginTop: "2rem" }}>
+      <h1>Welcome to your profile, {user.family_name}!</h1>
+      <img
+        src={user.picture}
+        alt={`${user.family_name}'s profile picture`}
+        style={{
+          borderRadius: "50%",
+          width: "100px",
+          height: "100px",
+          marginTop: "1rem",
+        }}
+      />
+      <p>Email: {user.email}</p>
+      <p>First Name: {user.given_name}</p>
+      <p>Last Name: {user.family_name}</p>
     </div>
   );
 }
