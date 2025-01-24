@@ -27,7 +27,7 @@ const BlogDetails = ({ params }) => {
   return (
     <div>
       <h1 className="text-center text-2xl font-bold">Post Details</h1>
-      <div className="p-6 w-1/3 mx-auto my-10 border border-cyan-400 rounded-2xl" >
+      <div className="p-6 md:w-1/3 mx-auto my-10 border border-cyan-400 rounded-2xl" >
       
       
       <div className="p-[18px] pt-2.5 bg-white rounded-b-md">
